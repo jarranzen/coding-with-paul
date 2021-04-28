@@ -1,21 +1,10 @@
 ﻿using System;
+using Classes_Consructors.Player;
+
 
 namespace Classes_Consructors
 {
-    public class Player
-    {
-        // Set up the empty attributes to be filled
-
-        public string Name;
-        public int Age;
-        public bool HasPet;
-        public bool IsDead;
-
-
-        public void Greeting()
-        {
-            Console.WriteLine("Hi my name is " + Name + " and my age is " + Age );
-        }
+   
     }
 
     class Program
@@ -45,4 +34,3 @@ namespace Classes_Consructors
             
         }
     }
-}
