@@ -1,0 +1,15 @@
+/Users/jarranzen1/Desktop/OBC/Coding/Classes_Consructors/bin/Debug/net5.0/Classes_Consructors.deps.json
+/Users/jarranzen1/Desktop/OBC/Coding/Classes_Consructors/bin/Debug/net5.0/Classes_Consructors.runtimeconfig.json
+/Users/jarranzen1/Desktop/OBC/Coding/Classes_Consructors/bin/Debug/net5.0/Classes_Consructors.runtimeconfig.dev.json
+/Users/jarranzen1/Desktop/OBC/Coding/Classes_Consructors/bin/Debug/net5.0/Classes_Consructors.dll
+/Users/jarranzen1/Desktop/OBC/Coding/Classes_Consructors/bin/Debug/net5.0/ref/Classes_Consructors.dll
+/Users/jarranzen1/Desktop/OBC/Coding/Classes_Consructors/bin/Debug/net5.0/Classes_Consructors.pdb
+/Users/jarranzen1/Desktop/OBC/Coding/Classes_Consructors/obj/Debug/net5.0/Classes_Consructors.csprojAssemblyReference.cache
+/Users/jarranzen1/Desktop/OBC/Coding/Classes_Consructors/obj/Debug/net5.0/Classes_Consructors.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jarranzen1/Desktop/OBC/Coding/Classes_Consructors/obj/Debug/net5.0/Classes_Consructors.AssemblyInfoInputs.cache
+/Users/jarranzen1/Desktop/OBC/Coding/Classes_Consructors/obj/Debug/net5.0/Classes_Consructors.AssemblyInfo.cs
+/Users/jarranzen1/Desktop/OBC/Coding/Classes_Consructors/obj/Debug/net5.0/Classes_Consructors.csproj.CoreCompileInputs.cache
+/Users/jarranzen1/Desktop/OBC/Coding/Classes_Consructors/obj/Debug/net5.0/Classes_Consructors.dll
+/Users/jarranzen1/Desktop/OBC/Coding/Classes_Consructors/obj/Debug/net5.0/ref/Classes_Consructors.dll
+/Users/jarranzen1/Desktop/OBC/Coding/Classes_Consructors/obj/Debug/net5.0/Classes_Consructors.pdb
+/Users/jarranzen1/Desktop/OBC/Coding/Classes_Consructors/obj/Debug/net5.0/Classes_Consructors.genruntimeconfig.cache
