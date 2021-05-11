@@ -7,20 +7,38 @@ namespace SearchFile
     {
         public static void Main()
         {
-            /* Script that takes in a directory, a pattern which determines
-             * the files to search inside of, and a search term: it produces
-             * a list of matching lines from within the matching files inside
-             * of the given directory
-             */
 
-            // TODO: Put a simple GUI around it: select file, write search term etc
-            // TODO: verify directory: exists? OK. underneath current 
-            //     : directory? append... in_home_directory? Also OK.
-            // TODO: remember these choices from last time used? (Text file??)
-            // TODO: colour the output appropriately
+/* 
+  To run this: 
+  Make a new project with the content of this file. The 
+  "Main" method that this comment is inside of will run!  
+  When running it asks for the three pieces of information. 
 
-            // (Where is this thing running?)
-            // Console.WriteLine(Environment.CurrentDirectory);
+  (1) What string to search for (eg "foreach", "Console")
+   
+  (2) Which directory to search through (includes subfolders)
+      eg "/Users/pmccann/junk". You can drag and drop a directory
+      onto the terminal screen from the finder to select it!
+
+  (3) Which files to search *inside of*. (eg *.txt to only search
+      files with names ending in .txt, or *.cs for C# files		
+*/
+			
+/* Description:
+ * Script that takes in a directory, a pattern which determines
+ * the files to search inside of, and a search term: it produces
+ * a list of matching lines from within the matching files inside
+ * of the given directory
+ */
+
+// TODO: Put a simple GUI around it: select file, write search term etc
+// TODO: verify directory: exists? OK. underneath current 
+//     : directory? append... in_home_directory? Also OK.
+// TODO: remember these choices from last time used? (Text file??)
+// TODO: colour the output appropriately
+
+// (Where is this thing running?)
+// Console.WriteLine(Environment.CurrentDirectory);
 
             string SearchTerm = " wegen";
             Console.Write($"Search for what? (Hit return to use '{SearchTerm}') : ");
