@@ -35,7 +35,8 @@ namespace SearchFile
 // TODO: verify directory: exists? OK. underneath current 
 //     : directory? append... in_home_directory? Also OK.
 // TODO: remember these choices from last time used? (Text file??)
-// TODO: colour the output appropriately
+// TODO: colour the output appropriately, or at least *helpfully*
+// TODO: offer to download results into a csv (maybe on the clipboard?)
 
 // (Where is this thing running?)
 // Console.WriteLine(Environment.CurrentDirectory);
