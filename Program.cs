@@ -41,41 +41,48 @@ namespace SearchFile
 // (Where is this thing running?)
 // Console.WriteLine(Environment.CurrentDirectory);
 
-            string SearchTerm = " wegen";
-            Console.Write($"Search for what? (Hit return to use '{SearchTerm}') : ");
+
+			// Formatting shortcut
+			string Dashes = "\n================================================\n"; 
+			
+			// Overall count of occurrences, and the number of files they are in
+            int TotalHitCount = 0; // Total number of lines the search term is found in
+            int GlobalFileCount = 0; // Total number of files in which the term appears
+			
+            
+			string SearchTerm = " wegen"; // What to look for
+			Console.Write($"Search for what? (Hit return to use '{SearchTerm}') : ");
             string CandidateSearch = Console.ReadLine();
             if (CandidateSearch.Length > 0)
             {
                 SearchTerm = CandidateSearch;
             }
 
-            // string SearchDir = Environment.CurrentDirectory; // Where this thing is running!
+            // TODO: Maybe use location this thing is running, as a default?
+            // string SearchDir = Environment.CurrentDirectory; 
 
-            string SearchDir = "/Users/pmccann/Dropbox/german";
-            Console.Write($"In which directory? (Hit return to use current directory) : ");
+            string SearchDir = "/Users/pmccann/Dropbox/german"; // Where to look
+            Console.Write($"In which directory? (Hit return to use {SearchDir}) : ");
             string CandidateDir = Console.ReadLine();
             if (CandidateDir.Length > 0)
             {
-                SearchDir = CandidateDir.TrimEnd(' '); // Delete any extra space (eg from drag'n'drop)
+                SearchDir = CandidateDir.TrimEnd(' '); // Delete spaces (eg from drag'n'drop)
             }
 
-            string FileMatching = "*.txt";
+            string FileMatching = "*.txt"; // What type of files to peek inside of
             Console.Write($"Type of files to search? (Hit return for '{FileMatching}') : ");
             string CandidateType = Console.ReadLine();
             if (CandidateType.Length > 0)
             {
                 FileMatching = CandidateType;
             }
+			
+			// We now have all three required pieces of information
 
             Console.WriteLine($"Searching for '{SearchTerm}' within the directory {SearchDir}\n");
 
             // TODO: Check that directory exists...
             // TODO: Catch access problems... (suggest sudo)?
-
-          
-
-            int TotalHitCount = 0; // Total number of lines the search term is found in
-            int GlobalFileCount = 0; // Total number of files in which the term appears
 
             foreach (var file in Directory.EnumerateFiles(SearchDir,FileMatching,SearchOption.AllDirectories))
             {
@@ -88,18 +95,17 @@ namespace SearchFile
 
                     if (line.Contains(SearchTerm))
                     {
-                        if (FileCount == 0) {
-                            Console.WriteLine($"\n{file}\n================================================");
+                        if (FileCount == 0) { // Haven't printed this header yet...
+                            Console.WriteLine($"\n{file}{Dashes}");
                         }
-                        FileCount++; // One more in this file
-                        TotalHitCount++; // One more overall
-
+                        FileCount++; // One more occurrence in this file
+                        TotalHitCount++; // One more occurrence of the term overall
                         Console.WriteLine($"line {LineCount} : {line}"); // Report the find
                     }
                 }
                 if (FileCount > 0) // We found something in *this* file
                 {
-                    Console.WriteLine($"A total of {FileCount} lines found\n================================================");
+                    Console.WriteLine($"A total of {FileCount} lines found{Dashes}");
                     GlobalFileCount++;
                     // TODO: Make this "line" if there's only one
                 }
@@ -114,12 +120,15 @@ namespace SearchFile
         }
 
     }
-    /* Here's how LINQ could be used to search... But we don't use this
-           * instead using the built-in capability
-           *
-           *  var files = from file in Directory.EnumerateFiles(SearchDir, FileMatching, SearchOption.AllDirectories)
-           *          from line in File.ReadLines(file)
-           *           where line.Contains(SearchTerm)
-           *           select new { myline = line, myfile = file };
-           */
+	
+    /* Further notes...
+	
+	Here's how LINQ could be used to search... But we don't use this
+     * instead using the built-in capability
+     *
+     *  var files = from file in Directory.EnumerateFiles(SearchDir, FileMatching, SearchOption.AllDirectories)
+     *          from line in File.ReadLines(file)
+     *           where line.Contains(SearchTerm)
+     *           select new { myline = line, myfile = file };
+     */
 }
