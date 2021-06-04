@@ -18,7 +18,7 @@ genre = ['Rock', 'Metal', 'Boom Bap', 'Trap', 'Hip Hop', 'Drum & Bass',  ]
 #define instruments
 instruments = ['Cello', 'Guitar', 'Bass', 'Dbl Bass', ]
 #define arrangement
-arrangement = ['I-V-PC-C-MI-1/2V-PC-C-MI-B-C-C-O', ]
+arrangement = ['I-V-PC-C-MI-1/2V-PC-C-MI-B-C-C-O', 'I-C-V-C-V-C-c-O', ]
 # print number of tracks | tracks radomly chosen between 3 and 20 tracks
 tracknumber = random.randint(4,20)
 ## or print non repeating instruments fro random array looping for random number of time in range (3 to 20)
@@ -36,10 +36,15 @@ print (random.choice(keysig))
 # Print Tempo
 print (tempo)
 # Print track numbers next to instruments
-print (arrangement)
+print (f"Arrangement is - " + (random.choice(arrangement)) )
+
+
 #print Track numbers and instruments
 
-for i in random.randrange(4,20):
-    print ((random.choice(instruments, cum_weights=(5, 50, 30, 20), k=4))
+for i in random.sample(range(4,20), 1):
+    print ((random.choice(instruments)))
+     #cum_weights=(5, 50, 30, 20), k=4)))
 
 # Print arrangement | Rules : One Arrangement must be chosen from arrangement array at random. 
+
+print ('Go create!')
