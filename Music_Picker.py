@@ -37,6 +37,8 @@ print (random.choice(keysig))
 print (tempo)
 # Print track numbers next to instruments
 print (f"Arrangement is - " + (random.choice(arrangement)) )
+# Print Genre
+print (f"Genre is - " + (random.choice(genre)) )
 
 
 #print Track numbers and instruments
