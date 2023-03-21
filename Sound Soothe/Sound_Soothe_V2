@@ -8,12 +8,14 @@ from kivy.core.audio import SoundLoader
 from kivy.uix.image import Image
 from kivy.animation import Animation
 from kivy.uix.gridlayout import GridLayout
+from kivy.uix.anchorlayout import AnchorLayout
+from kivy.uix.label import Label
 
 class SplashScreen(Screen):
     def __init__(self, **kwargs):
         super(SplashScreen, self).__init__(**kwargs)
         self.bg = Image(source='splash_bg.png', allow_stretch=True, keep_ratio=False)
-        self.text = Label(text="SoundSoothe", font_size=32, color=(0, 0, 0, 1), pos_hint={'center_x': 0.5, 'center_y': 0.5})
+        self.text = Label(text="Sound-Soothe", font_size=100, pos_hint={'center_x': 0.5, 'center_y': 0.1})
         self.add_widget(self.bg)
         self.add_widget(self.text)
 
@@ -28,27 +30,25 @@ class SplashScreen(Screen):
 class MainScreen(Screen):
     def __init__(self, **kwargs):
         super(MainScreen, self).__init__(**kwargs)
-        outer_layout = BoxLayout(orientation='vertical', spacing=10, padding=[50, 50, 50, 50])
-        inner_layout = BoxLayout(orientation='vertical', spacing=10)
+        layout = BoxLayout(orientation='vertical', size_hint=(0.9, 0.9), pos_hint={'center_x': 0.5, 'center_y': 0.5})
 
-        title = Label(text="Select a sound to relax:", font_size=24)
-        inner_layout.add_widget(title)
+        title = Label(text="[u]Select a sound to relax[/u]", markup=True, font_size=50, size_hint_y=0.5, height=50)
+        layout.add_widget(title)
 
-        grid = GridLayout(cols=2, spacing=10, size_hint=(1, 0.6), pos_hint={'center_x': 0.5, 'center_y': 0.5})
+        grid = GridLayout(cols=2, spacing=30, size_hint_y=.5, height=1000, size_hint_x=.5, width=1000, pos_hint={'center_x': 0.5, 'center_y': 0.1})
         for sound_type in ['harp', 'guitar', 'piano', 'nature']:
             button_layout = BoxLayout(orientation='vertical', spacing=2)
-            button = Button(text='', size_hint=(1, 1))
+            button = Button(text='', size_hint=(1, 1), size=(500, 500))
             button.background_normal = f'{sound_type}_icon.png'
             button.bind(on_release=self.change_screen)
-            label = Label(text=sound_type.capitalize(), font_size=14)
+            label = Label(text=sound_type.capitalize(), font_size=50)
             button_layout.add_widget(button)
             button_layout.add_widget(label)
             grid.add_widget(button_layout)
 
-        inner_layout.add_widget(grid)
-        outer_layout.add_widget(inner_layout)
+        layout.add_widget(grid)
 
-        self.add_widget(outer_layout)
+        self.add_widget(layout)
 
 
     def change_screen(self, instance):
