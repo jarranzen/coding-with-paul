@@ -1,51 +1,22 @@
-# practice_partner.py
-
-import tkinter as tk
-from tkinter import messagebox
-import random
-import time
-
-class PracticePartnerApp:
-    def __init__(self, root):
-        self.root = root
-        self.root.title("Practice Partner")
-        
-        # Duration selection
-        self.duration_label = tk.Label(root, text="Select Practice Duration:")
-        self.duration_label.pack()
-
-        self.duration_var = tk.StringVar(value="15")
-        self.duration_15 = tk.Radiobutton(root, text="15 Minutes", variable=self.duration_var, value="15")
-        self.duration_30 = tk.Radiobutton(root, text="30 Minutes", variable=self.duration_var, value="30")
-        self.duration_15.pack()
-        self.duration_30.pack()
-
-        # Generate button
-        self.generate_button = tk.Button(root, text="Generate Practice Session", command=self.generate_session)
-        self.generate_button.pack()
-
-        # Define scales and arpeggios
-        self.scales = ["C Major", "G Major", "D Major", "A Minor", "E Minor"]
-        self.arpeggios = ["C Major Arpeggio", "G Major Arpeggio", "D Major Arpeggio", "A Minor Arpeggio", "E Minor Arpeggio"]
-
-    def generate_session(self):
-        duration = int(self.duration_var.get())
-        num_brackets = duration // 5
-        
-        practice_items = []  # List to hold practice items
-        for i in range(num_brackets):
-            practice_type = random.choice(["Scale", "Arpeggio"])
-            if practice_type == "Scale":
-                practice_item = random.choice(self.scales)
-            else:
-                practice_item = random.choice(self.arpeggios)
-            
-            practice_items.append(f"Bracket {i + 1}: Practice {practice_item} for 5 minutes!")
-
-        # Show all practice items in a single message box
-        messagebox.showinfo("Practice Session", "\n".join(practice_items))
-
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = PracticePartnerApp(root)
-    root.mainloop()
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Partner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Practice Partner</h1>
+        <label for="duration">Select Practice Duration:</label>
+        <select id="duration">
+            <option value="15">15 Minutes</option>
+            <option value="30">30 Minutes</option>
+        </select>
+        <button id="generateButton">Generate Practice Session</button>
+        <div id="output"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
